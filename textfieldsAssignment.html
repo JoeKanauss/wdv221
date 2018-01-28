@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
+
+<style>
+
+body {background-color:#C99;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+
+</style>
+
+
+<script>
+	var count = 0;	
+
+/*EX 1: Display value1*/
+function getValue1()
+	{
+	var inValue1 = document.getElementById("value1").value;
+	document.getElementById("displayValue1").value = inValue1
+	}
+	
+/*EX 2: Display value2*/
+function getValue2()
+	{
+	var inValue2 = document.getElementById("value2").value;
+	document.getElementById("displayValue2").value = inValue2;
+	}
+
+/*EX 3: Display value of Value1 * Value2*/
+function multiplyNumbers()
+	{
+	var inValue1 = document.getElementById("value1").value;
+	var inValue2 = document.getElementById("value2").value;
+	var outTotal = inValue1 * inValue2;
+	document.getElementById("displayMultiplyNumbers").value = outTotal;
+	}
+	
+/*EX 4: Display value of Value1 + Value2*/
+function addNumbers()
+	{
+	var inValue1 = document.getElementById("value1").value;
+	var inValue2 = document.getElementById("value2").value;
+	var outTotal = parseFloat(inValue1) + parseFloat(inValue2);
+	document.getElementById("displayAddNumbers").value = outTotal;
+	}
+	
+/*EX 5: Use increment operator to add one to count variable and display new variable*/
+function newCount()
+	{
+	var inValue = count;
+	count++;
+	var outTotal = count;
+	document.getElementById("displayNewCount").value = outTotal;
+	}
+</script>
+	
+</script>
+
+
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Project 3 - Operators and Textfields - Assignment</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<h3>Instructions</h3>
+<p>Use the form fields for the input values. For each of the following exercises create a function what will be activated by the button.  </p>
+<form name="form1" method="post" action="">
+  <p>Enter a number for value1:
+    <input type="text" id="value1"/> <!--Give id of "value1" to be able to put value into function getValue1() -->
+  </p>
+  <p>Enter a number for value 2:
+    <input type="text" id="value2"/> <!--Give id of "value2" to be able to put value into function getValue2() -->
+  </p>
+  <p>1.
+    <input type="button" value="Display value1" onclick="getValue1()" /> <!-- EX 1: change input type from "submit" to button, add onclick function to call getValue1() function-->
+    Display the value you entered for value1:
+  <input type="text" id="displayValue1"/> <!-- EX 1: give id of "displayValue1 for the function getValue1() to have somewhere to put the variable inValue1-->
+  </p>
+  <p>2.
+    <input type="button" value="Display value2" onclick = "getValue2()"/> <!-- EX 2: change input type from "submit" to button, add onclick function to call getValue2() function-->
+    Dislplay the value you entered for value2:
+
+  <input type="text" id="displayValue2"/> <!-- EX 2: give id of "displayValue2 for the function getValue2() to have somewhere to put the variable inValue2-->
+  </p>
+  <p>3.
+    <input type="button" value="Multiply" onclick = "multiplyNumbers()"/> <!-- EX 3: change input type from "submit" to button, add onclick function to call multiplyNumbers() function-->
+    Display the value of value1 * value2:
+
+  <input type="text" id="displayMultiplyNumbers"/> <!-- EX 3: give id of "displayMultiplyNumbers" for the function multiplyNumbers() to have somewhere to put the variable outTotal-->
+  </p>
+  <p>4.
+    <input type="button" value="Add" onclick="addNumbers()"/> <!-- EX 4: change input type from "submit" to button, add onclick function to call addNumbers() function-->
+    Display the results of value1 + value2 in the following textfield.
+  <input type="text" id="displayAddNumbers"/> <!-- EX 4: give id of "displayAddNumbers" for the function addNumbers() to have somewhere to put the variable outTotal-->
+  </p>
+  <p>5.
+    <input type="button" value="Increment count" onclick="newCount()"/> <!-- EX 5: change input type from "submit" to "button", add onclick function to call newCount() function-->
+    Use the increment operator to add 1 to count and display the new value of count.
+  <input type="text" id="displayNewCount"/> <!-- EX 5: give id of "displayNewCount" for the function newCount() to have somewhere to put the variable outTotal-->
+  </p>
+  <p>
+    <input type="reset" name="Reset" id="button" value="Reset">
+  </p>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>

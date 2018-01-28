@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+/*create a function to display a random number between 1 and 10; create button that calls function and displays it*/
+function getRandomNum() 
+	{
+	var randomNum = Math.floor((Math.random() *10) +1);
+	document.getElementById("displayRNG").value = randomNum;
+	}
+
+</script>
+</head>
+<body>
+<h3>Random Number Generator</h3>
+
+<input type="button" value="Random Number Generator!" onclick="getRandomNum()" />
+<input type="text" id="displayRNG" />
+
+
+</body>
+</html>

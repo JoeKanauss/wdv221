@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Final Exam Project</title>
+
+
+<script src="currencyFormatter2.js"></script>
+
+<script>
+
+
+
+//ADDED NAPKIN AND CUP PRICE TO ESTIMATE IF SELECTED
+
+
+//Use the following arrays to create the Option elements for the Side Dish drop/down
+var sidesText = new Array("French Fries","Smoked Corn","Sweet Potato Mash","Baked Beans");
+var sidesValues = new Array("0.90","1.39","1.19","1.29");
+			
+var appText = ["Smoked Chicken Wings", "Rib Tips", "Poppers"];
+var appValue = [1.49, 1.99, 0.99];
+			
+var saladText = ["Side Salad", "Pasta Salad"];
+var saladValue = [1.99, 1.29];			
+			
+var meatText = ["Smoked Brisket", "Smoked Chicken", "Pulled Pork", "Smoked Venison"];
+var meatValue = [3.99, 1.99, 2.49, 4.49];
+
+
+var pPP = 0;
+
+function pricePerPerson()
+{
+	var appPrice = document.getElementById("select").value;
+	var saladPrice = document.getElementById("select2").value;
+	var meatPrice = document.getElementById("select3").value;
+	var sidePrice = 0;
+	var utensilPrice = 0;
+	var napkinPrice = 0;
+	var cupPrice = 0;
+	for (var x=0; x < sidesText.length; x++)
+	{
+		if(sidesText[x] == document.getElementById("sideDish").value)
+			{
+			sidePrice = parseFloat(sidesValues[x]);
+			}
+	}
+	
+	if(document.getElementById("utensilsY").checked ==true)
+	{
+		utensilPrice = document.getElementById("utensilsY").value;
+	}
+	
+	if(document.getElementById("napkins").checked == true)
+	{
+		napkinPrice = document.getElementById("napkins").value;
+	}
+	
+	if(document.getElementById("cups").checked == true)
+	{
+		cupPrice = document.getElementById("cups").value;
+	}
+	
+	
+	 pPP = parseFloat(appPrice) + parseFloat(saladPrice) + parseFloat(meatPrice) + parseFloat(sidePrice) + parseFloat(utensilPrice) + parseFloat(napkinPrice) + parseFloat(cupPrice);
+	
+	testFormat(pPP);
+	
+	document.getElementById("textfield3").value = formattedCurrency;
+}
+
+function displayName()
+{
+	document.getElementById("preparedFor").innerHTML = document.getElementById("textfield2").value;
+}
+
+
+
+
+function displayApp()
+{
+	for (var x=0; x < appValue.length; x++)
+	{
+		if(document.getElementById("select").value == appValue[x])
+		{
+			document.getElementById("appetizer").innerHTML = appText[x] + " " + appValue[x];
+		}
+	}
+	
+}
+
+function displaySalad()
+{
+	for (var x=0; x < saladValue.length; x++)
+	{
+		if(document.getElementById("select2").value == saladValue[x])
+		{
+			document.getElementById("salad").innerHTML = saladText[x] + " " + saladValue[x];
+		}
+	}
+	
+}
+
+function displayMeat()
+{
+	for (var x=0; x < meatValue.length; x++)
+	{
+		if(document.getElementById("select3").value == meatValue[x])
+		{
+			document.getElementById("meat").innerHTML = meatText[x] + " " + meatValue[x];
+		}
+	}
+	
+}
+
+function displaySide()
+{
+	for (var x=0; x < sidesText.length; x++)
+	{
+		if(document.getElementById("sideDish").value == sidesText[x])
+		{
+			document.getElementById("side").innerHTML = sidesText[x] + " " + sidesValues[x];
+		}
+	}
+	
+}
+
+
+function cateringEstimate()
+{
+	var numPeople = document.getElementById("textfield4").value;
+	var caterEstimate = parseFloat(numPeople) * pPP;
+	
+	testFormat(caterEstimate);
+	
+	document.getElementById("ce").innerHTML = formattedCurrency;
+	
+	document.getElementById("receipt").style.backgroundColor = "white";
+}
+
+function clearCE()
+{
+document.getElementById("ce").innerHTML = "";
+document.getElementById("preparedFor").innerHTML = "";
+document.getElementById("appetizer").innerHTML = "";
+document.getElementById("salad").innerHTML = "";
+document.getElementById("meat").innerHTML = "";
+document.getElementById("side").innerHTML = "";
+document.getElementById("receipt").style.backgroundColor="";
+}
+
+
+</script>
+
+
+<style>
+
+body	{
+	background-color:brown;
+}
+
+#container	{
+	width:80%;
+	background-color:#C96;
+	margin-left:auto;
+	margin-right:auto;	
+}
+
+#head1	{
+	margin-left:auto;
+	margin-right:auto;
+		
+}
+
+
+#content	{
+	background-color:#C96;
+	margin-left:auto;
+	margin-right:auto;	
+}
+
+#pricePer	{
+
+}
+
+img	{
+	height:200;
+	width:200;	
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+
+.receiptFormat {
+	width: 600px;
+	text-indent: 25px;
+	margin-left: auto;
+	margin-right: auto; 
+	border: thin black dashed;
+	
+}
+
+.receiptFormat h2 {
+	text-align:center;	
+}
+
+
+</style>
+
+
+
+
+</head>
+
+<body>
+	<h1 align="center">WDV221 Intro Javascript</h1>
+	<h2 align="center">Final Exam Project</h2>
+<div id="container">
+
+
+
+<div id="head1">
+	<h1 align="center">Bruce's BBQ &amp; Catering</h1>
+</div><!-- end head1 area -->
+
+<div id="banner">
+</div><!-- end banner display area -->
+
+<div id="content">
+
+
+
+    <form method="post"	action="#">
+    
+	<h2 align="center">Catering Menu Planner</h2> 
+    
+ 	<p>Please use our Menu Planner to help us cater your next function. Choose your selections and our Planning Menu will provide you with an estimate for your function. </p>      
+    
+	<div align="center">
+	  <table width="52%" border="0">
+	    <tr>
+	      <td width="51%">Customer Name:</td>
+	      <td width="49%"><input type="text" name="textfield2" id="textfield2" onchange = "displayName()"/></td>
+	      </tr>
+	    <tr>
+	      <td>Appetizers:</td>
+	      <td><select name="appetizers" id="select" onchange = "displayApp()">
+	        <option value="0.0">No Selection</option>
+	        <option value="1.49">Smoked Chicken Wings</option>
+	        <option value="1.99">Rib Tips</option>
+	        <option value="0.99">Poppers</option>
+	        </select> </td>
+	      </tr>
+	    <tr>
+	      <td>Salads:</td>
+	      <td><select name="select2" id="select2" onchange= "displaySalad()">
+	        <option value="0.0">No Selection</option>
+	        <option value="1.99">Side Salad</option>
+	        <option value="1.29">Pasta Salad</option>
+	        </select></td>
+	      </tr>
+	    <tr>
+	      <td>Primary Meat:</td>
+	      <td><select name="select3" id="select3" onchange="displayMeat()">
+	        <option value="0.0">No Selection</option>
+	        <option value="3.99">Smoked Brisket</option>
+	        <option value="1.99">Smoked Chicken</option>
+	        <option value="2.49">Pulled Pork</option>
+	        <option value="4.49">Smoked Venison</option>
+	        </select></td>
+	      </tr>
+	    <tr>
+	      <td><p>Side Dishes:</p>
+	        <p><em>1. Use Javascript to populate the option elements for this drop down. </em></p></td>
+	      <td>
+          	<select name="sideDish" id="sideDish" onchange="displaySide()">
+            	<!-- 2. Use javascript to populate the options for this drop down list.  -->
+				<script>
+				for (var x=0; x < sidesText.length; x++)
+				{
+				document.write ("<option>" + sidesText[x] + "</option>");
+				}
+				
+				</script>
+          	</select>
+          </td>
+	    </tr>
+	    <tr>
+	      <td>Additional Products:</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td>Do you need Utensils: </td>
+	      <td>Yes
+	        <input type="radio" name="utensils" id="utensilsY" value="0.25" />
+	        No
+	        <input type="radio" name="utensils" id="utensilsN" value="0.0" /></td>
+	    </tr>        
+	    <tr>
+	      <td>Napkins: </td>
+	      <td><input type="checkbox" name="napkins" id="napkins" value="0.05"/></td>
+	      </tr>
+	    <tr>
+	      <td>Cups: </td>
+	      <td><input type="checkbox" name="cups" id="cups" value="0.06" /></td>
+	    </tr>
+	    </table>
+	  </div>
+	<p align="center">
+	  <input type="button" name="button" id="button" value="Price Per Person" onclick="pricePerPerson()"/>
+	  <input type="reset" name="button2" id="button2" value="Reset Options" />
+	  <em>2. Calculate and display the cost per person</em></p>
+	<p align="center">Estimated Price Per Person: 
+	  <label for="textfield3"></label>
+	  <input type="text" name="textfield3" id="textfield3" />
+	  <em>(Note: this should be a properly formatted dollar amount)</em></p>  
+    </form>
+  <hr />
+  
+  <!-- Estimate Statement -->
+  <div class="receiptFormat" id="receipt">
+  <h2>Catering Estimate</h2>
+  <p>Prepared for: <span id="preparedFor"></span></p>
+  <p>Appetizers:   <span id="appetizer"> </span></p>
+  <p>Salads: <span id="salad"> </span></p>
+  <p>Meat:  <span id="meat"> </span></p>
+  <p>Sides: <span id="side"> </span></p>
+  <form name="estimateForm" action="#">
+      <p>How many people do you expect? 
+        <label>
+          <input type="text" name="textfield4" id="textfield4" />
+        </label>
+      </p>
+      <p>Calculate Estimate:
+        <input type="button" name="button6" id="button6" value="Submit" onclick="cateringEstimate()"/>
+        <em>8. Use the price person and the number entered</em></p>
+      <p>Catering Estimate: <span id="ce"> </span></p>
+      <p>
+        <input type="reset" name="button5" id="button5" value="Try Again" onclick = "clearCE()"/> 
+      <em>9. Clear the estimate amounts and the quantity field.</em></p>
+  </form>
+  </div> <!-- end Estimate Statement --->
+    <hr />
+<h2>Project Instructions:</h2>
+<ol>
+  <li>Use the given arrays to dynamically create the option list for the Side Dishes select box.</li>
+  <li>The button should calculate the price per person. This is done by adding up the individual values based upon the user's selections. Display the Estimated Price Per Person for Event in the area indicated. The output should be properly formatted as a dollar amount. </li>
+  <li>Display the customer name from the form on the Estimate.</li>
+  <li>Display the selected value from the form on the Estimate.</li>
+  <li>Display the selected value from the form on the Estimate.</li>
+  <li>Display the selected value from the form on the Estimate.</li>
+  <li>Display the selected value from the form on the Estimate.</li>
+  <li>The Calculate Estimate button should calculate the Catering Estimate. Use the Price Per Person and multiply it by the Number of People Expected. Display this number on the Estimate area. The number should properly formatted as a dollar amount.</li>
+  <li>The Try again button should clear the Estimated Price for Event area and return the background to the original background color.</li>
+</ol>
+<h2>Extra Credit:
+</h2>
+<ol>
+  <li>Implement a banner rotator on the page.</li>
+  <li>Allow the customer to select multiple side dishes and include them in the menu and the estimate.</li>
+  <li>Display the additional products in the menu on the estimate.</li>
+  <li>Include additional functionality of your own choice! Note on the page what you added.</li>
+</ol>
+<h3>Grading Rubric:	Partial Credit is Good!!</h3>
+<blockquote>
+  <p>0	Not attempted</p>
+  <p>1	Attempted </p>
+  <p>2	Displays a value other than an error</p>
+  <p>4 Displays the correct value but not properly formatted or processed correctly.</p>
+  <p>5	Functions as expected or displays correct values properly formatted.</p>
+</blockquote>
+<p>&nbsp;</p>
+
+</div><!-- end content area -->  
+
+</div>
+<!-- end Container area -->
+
+<script>
+
+</script>
+
+
+
+</body>
+</html>

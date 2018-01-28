@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Calculations and Textfields</title>
+
+<script src="currencyFormatter2.js"></script>
+
+<style>
+body {background-color:#C99;
+}
+</style>
+
+<script>
+var accountBalance = 0; /* EX 1 - create global variable accountBalance and initialize it to 0*/
+
+function deposit() /*EX 2 - Create function deposit() that adds inAmt to accountBalance*/
+	{
+	var inAmt = document.getElementById("inAmt").value;
+	accountBalance +=  parseFloat(inAmt); /*EX 5 - use combined operators for deposit() and withdraw()*/
+	}
+	
+function withdraw() /*EX 3 - create function withdraw() that subtracts inAmt from accountBalance*/
+	{
+	var inAmt = document.getElementById("inAmt").value;
+	accountBalance -= parseFloat(inAmt); /*EX 5 - use combined operators for deposit() and withdraw()*/
+	}
+	
+function displayBalance() /*EX 4 Create function displayBalance() to display accountBalance in Balance field*/
+	{
+	document.getElementById("outBalance").value = formattedCurrency;
+	}
+
+	
+	
+	
+</script>
+
+
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Project 3 - Calculations and Textfields </h3>
+<h3>Assignment 1. Create an electronic Checkbook</h3>
+<p>In this project you are going to create an electronic checkbook using Javascript. You can add amounts and withdraw amounts from your current balance. </p>
+<form id="form2" name="form2" method="post" action="">
+  <p>
+    Enter an amount: 
+    <input type="text" name="inAmt" id="inAmt" />
+  </p>
+  <p>
+    <input type="button" name="button3" id="button3" value="Deposit" onclick="deposit()"/>
+    <input type="button" name="button4" id="button4" value="Withdraw" onclick="withdraw()"/>
+    <input type="button" name="button5" id="button5" value="Display Balance" onclick="testFormat(accountBalance); displayBalance()"/>
+  </p>
+  <p>Balance::
+  <input type="text" name="outBalance" id="outBalance" />
+  </p>
+  <p>
+    <input type="reset" name="button2" id="button2" value="Reset" />
+  </p>
+</form>
+<p>Instructions:</p>
+<p>1. Create a global variable called accountBalance. Initialize it to 0. </p>
+<p>2. Create a deposit function that will process a deposit to the account. This will add the amount entered in the Amount field to the accountBalance. </p>
+<p>3. Create a withdraw function that will process a withdrawl from the account. This will subtract the amount entered in the Amount field from the accountBalance.</p>
+<p>3. Create a displayBalance function that will display the current value of accountBalance in the Balance field.</p>
+<p>4. Use the combined operators for the deposit and withdraw processes. </p>
+<p>5. Use parseInt( ) or parseFloat( ) as needed.</p>
+
+<p>&nbsp;</p> 
+ 
+ 
+
+</body>
+</html>

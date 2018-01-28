@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Loops</title>
+
+</head>
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h2>Project-5 Loops Project</h2>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<h3>Instructions:</h3>
+<ol>
+  <li>Place all your HTML and Javascript  on this page. </li>
+  <li>Create a function called totalSales( ). </li>
+  
+<script>
+
+
+function totalSales() //EX 2 - create function totalSales()
+{
+var moreNumbers = "yes" //EX 7
+var totalNumber = 0; //EX 6
+var addNumber = 0; //EX 5
+	while (moreNumbers == "yes") //EX 4 - loop that asks for number until there are no more to enter
+	{
+	totalNumber++; //EX 6 - loop will count how many numbers entered
+	var number = prompt("Enter a Number."); //EX 4
+	addNumber = addNumber + parseFloat(number); //EX 5 - number added will be added to variable
+	moreNumbers = prompt("Do you have more numbers? Yes/No?"); //EX 7 - loop will continue if there are more numbers to add
+	}
+document.getElementById("totalSales").innerHTML = "Total Number of Sales: "+ totalNumber; //EX 8 - Once loop ends, it will display how many numbers entered
+document.getElementById("addedSales").innerHTML = "Total Sales Amount: "+ addNumber; //EX 8 - Once loop ends, it will display total of numbers entered
+}
+
+
+</script>
+
+  <li>Use a button to call the function. </li>
+  <!-- EX 3: use a button to call function totalSales()-->
+  <input type="button" value="Sales Counter" onclick="totalSales();" /> 
+  <!-- EX 9 - format message area to make it easy to find and read-->
+  <p id = "totalSales"></p>
+  <p id = "addedSales"></p>
+  <li>The function will start a loop that will ask you for a number until you  tell the function that you do not have any more numbers to enter.  </li>
+  <li>The number you enter will be added to an accumulator variable.</li>
+  <li>The loop  will count how many numbers were entered. </li>
+  <li>The loop will ask you if  you have more numbers to enter. If you enter &lsquo;yes&rsquo; the loop will continue. If you enter 'no' the loop will stop. </li>
+  <li>Once the loop stops you should display a message that says how many numbers you entered and the total amount of the numbers you entered.</li>
+  <li>Format the message area to make it easy to find and read. </li>
+</ol>
+<p><strong>Note</strong>: This type of loop is often used when asking the customer or user for input. Most of the time we do not know how many items the customer has to enter. For example: You need to order a number of products and the loop will ask you for the name, quantity and price for each product. It will keep asking you until you do not have any items left to enter. It will then end the loop and complete its processing. <br />
+</p>
+</body>
+</html>

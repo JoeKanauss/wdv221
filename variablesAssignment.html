@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+
+<style>
+
+body {background-color:#FC6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+
+</style>
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Variables and Data Types - Variables Assignment</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<h3>For each exercise use a comment line to put the Exercise number within the script. Also place a short description of what the script is doing.</h3>
+<hr />
+<p>1. Define four global variables called color1 through color4. Assign the variables a color.</p>
+
+<script>
+/*EX 1- define 4 global variables: color1-4*/
+var color1
+color1 = "red";
+var color2
+color2 = "blue";
+var color3
+color3 = "green";
+var color4
+color4 = "yellow";
+</script>
+
+<p>2. Create a function called getColor( ).    Create a local variable called color5.</p>
+
+<p>3. In the getColor( ) use the prompt( ) to ask the user for a color. Store this value in the color5 variable. Use a button with an onclick event handler to activate this function.</p>
+
+<script>
+/*EX 2- create function getColor() and create local variable color5*/
+function getColor( )
+	{var color5
+/*EX 3- use prompt() to ask user for a color, store value in color5, and create button with onclick event handler to activate function*/
+	color5 = prompt("Name a Color");
+	return;}
+</script>
+
+<input type="button" value="Name a Color" onclick="getColor();" />
+
+<p>4. Create a function called displayColors( ). Use the alert( ) to display all the color variables and their associated value. Use a button with an onclick event handler to activate this function.</p>
+
+<script>
+/*EX4 - create function displayColors() and use alert() to display the color variables and their value. Use a button with an onlclick event handler to activate this function*/
+function displayColors()
+	{alert(color1);
+	alert(color2);
+	alert(color3);
+	alert(color4);
+	alert(color5);
+	return;}
+</script>
+<input type="button" value="Display Colors" onclick="displayColors();" />
+
+<p>5. In your comments address why color5 cannot be displayed by the displayColors( ) function. </p>
+<script>
+/*EX 5 - Explain why color5 cannot be displayed in displayColors() function*/
+
+/* color5 canno be displayed in the displayColors() function because it is a local variable, created and usable only within the getColor() function. color1-4 were created independent of a function, and are globabl variables, useable anywhere.  */
+</script>
+</body>
+</html>

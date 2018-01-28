@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+
+<style>
+
+body {background-color:#FC6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+
+</style>
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Variables and Data Types - String Object Assignment</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<h3>For each exercise use a comment line to put the Exercise number within the script. Also place a short description of what the script is doing.</h3>
+<hr />
+<p>1. Define a global  variable called inName. Assign it an initial value of &quot;&quot;.</p>
+
+<script>
+/*EX 1 - define global variable inName with initial value of ""*/
+var inName
+inName = "";
+</script>
+
+<p>2. Create a function called getName( ). The function will use a prompt to ask the user to enter a name. Store the result in the inName variable. Use an event handler to activate this function.</p>
+
+<script>
+/*EX 2 - create function getName() that will use prompt to ask user to enter name and store the result in the inName variable; create an event handler to activiate function*/
+function getName()
+	{inName = prompt("Please enter your name");
+	return;}
+</script>
+
+<input type="button" value="Enter Your Name" onclick="getName();" />
+
+<p>3. Create a function called displayName( ). The function will use alert( ) to display the value stored in the inName variable. It will also display the number of characters in the inName variable. Use and event handler to activate this function.</p>
+
+<script>
+/*EX 3 - create function displayName() that will alert the value stored in the inName variable and the number of characters in the inName variable; create an event handler to activate function*/
+function displayName()
+	{alert(inName);
+	alert(inName.length);
+	return;}
+</script>
+
+<input type="button" value="Display the Name" onclick="displayName();" />
+
+<p>Define a global variable called emailAddress. Assign it an email address. Define a global variable called yourEmailAddress and assign it the value of your DMACC email address.</p>
+
+<script>
+/*define globabl function emailAddress, assign it an email address; define global variable yourEmailAddress, assign it DMACC email address*/
+var emailAddress
+emailAddress = "jimbob@mail.com";
+
+var yourEmailAddress
+yourEmailAddress = "jakanauss@dmacc.edu";
+</script>
+
+<p>Create a function called getEmailName( ). This function will accept one input parameter. When the function is called  display only the name from the email address. For example if the user enters &quot;jLeenan@yahoo.com&quot; your function should display &quot;jLeenan&quot;.  Use an event handler to activate this function.</p>
+
+<script>
+/*create function getEmailName() that will accept one input paramater, when function is called display only the name from the email address*/
+function getEmailName(email)
+	{var position
+	position = email.search("@");
+	console.log("The position of the @ is " + position);
+	alert(email.substring(0,position));
+	return;}
+</script>
+
+<p>4. Use the getEmailName( ) function to process emailAddress.</p>
+<!--EX 4 - use the getEmailName() function to process emailAddress variable; create an event handler to activate function -->
+<input type="button" value="Display emailName for emailAddress" onclick="getEmailName(emailAddress);" />
+
+<p>5. Use the getEmailName( ) function to process yourEmailAddress.</p>
+<!--EX 5 - use the getEmailName() function to process yourEmailAddress variable; create an event handler to activate function -->
+<input type="button" value="Display emailName for yourEmailAddress " onclick="getEmailName(yourEmailAddress);" />
+
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript Form Processing</title>
+</head>
+
+<script>
+//EX 1 - Create a function that will display the current value of the element. Use the indicated event  to run the function.
+function displayProductNumber() 
+{
+	document.getElementById("productNumber").innerHTML ="<p><strong>Product Number: </strong>"+ document.getElementById("textfield").value + "</p>";
+}
+
+function displayPerformanceEval()
+{
+	document.getElementById("performanceEval").innerHTML ="<p><strong>Performance Evaluation: </strong>" + document.getElementById("textarea").value + "</p>";
+}
+
+function displayFloorPreference()
+{
+	var floorPreference = document.getElementsByName("RadioGroup1");
+	
+	for (var x=0; x <floorPreference.length; x++)
+		{
+			if (floorPreference[x].checked == true)
+				{
+					document.getElementById("floorPreference").innerHTML = "<p><strong>Floor Preference: </strong>" + floorPreference[x].value + "</p>";
+				}
+		}
+}
+
+function displayCheckbox()
+{
+			document.getElementById("checkboxValue").innerHTML = "<p><strong>You Like Working With Computers: </strong>" + document.getElementById("checkbox").checked + "</p>";
+}
+
+function displayFile()
+{
+	document.getElementById("file").innerHTML = "<p><strong>File Value: </strong>" + document.getElementById("fileField").value; + "</p>"
+}
+
+function displaySubmitValue()
+{
+	document.getElementById("submitValue").innerHTML = "<p><strong>Submit Value: </strong>" + document.getElementById("button").value + "</p>";
+}
+
+//EX 2 - Create a function that will set the element to a different value. Use an event of your choice to run this function.
+
+function changeProductNumber()
+{
+	var newProductNumber = prompt("What is the new Product Number?");
+	
+	document. getElementById("textfield").value = newProductNumber;
+
+	document.getElementById("productNumber").innerHTML ="<p><strong>Product Number: </strong>"+ document.getElementById("textfield").value + "</p>";
+}
+
+function changePerformanceEval()
+{
+	var newPerformanceEval = prompt("What do you want the Performance Evaluation to say?");
+	
+	document. getElementById("textarea").value = newPerformanceEval;
+
+	document.getElementById("performanceEval").innerHTML ="<p><strong>Performance Evaluation: </strong>" + document.getElementById("textarea").value + "</p>";
+}
+
+function changeFloorPreference()
+{
+	var newFloorPreference= prompt("Select One of the Following: TOP FLOOR, AVERAGE, or GROUND LEVEL");
+	
+	var floorPreference = document.getElementsByName("RadioGroup1");
+	
+	for (var x=0; x <floorPreference.length; x++)
+	{
+		if(newFloorPreference.toUpperCase() == floorPreference[x].value.toUpperCase())
+		
+		{
+			floorPreference[x].checked = true;
+			
+			document.getElementById("floorPreference").innerHTML = "<p><strong>Floor Preference: </strong>" + floorPreference[x].value + "</p>";
+			
+		return;
+		}
+	}
+	
+	
+}
+
+function changeCheckbox()
+{
+	if (document.getElementById("checkbox").checked == true)
+		{
+			document.getElementById("checkbox").checked = false;
+		}
+	else
+		{
+				document.getElementById("checkbox").checked = true;
+		}
+
+	document.getElementById("checkboxValue").innerHTML = "<p><strong>You Like Working With Computers: </strong>" + document.getElementById("checkbox").checked + "</p>";
+}
+
+
+function changeFile()
+{
+	document.getElementById("fileField").value = "";
+}
+
+function changeFavoriteClass()
+{
+	var newFavClass = prompt("Select One of the Following: WDV101, WDV205, WDV151, or WDV221");
+	
+	var favClass = document.getElementById("select");
+	
+	for (var x=0; x < favClass.length; x++)
+	{
+		if(newFavClass.toUpperCase() == favClass[x].value.toUpperCase())
+		
+			{
+			favClass[x].selected = true;
+			
+			document.getElementById("favoriteClass").innerHTML = "<p><strong>Favorite Class: </strong>" + favClass[x].value + " " + "<strong>Index: </strong>" + favClass[x].index + "</p>";
+			
+			return;
+			}
+	}
+	
+	
+}
+
+function changeSubmitValue()
+{
+	var newSubmitValue= prompt("What is the new Submit Value?");
+	
+	document.getElementById("button").value = newSubmitValue;
+}
+
+
+
+
+
+
+
+
+//EX 3 - For the hidden field create a function that will set it to a value of "WDV221 Intro Javascript".
+
+function changeHiddenValue()
+{
+	document.getElementById("hiddenField").value = "WDV221 Intro Javascript";
+}
+
+
+//EX 4 - For the hidden field create a function that will will display its current value.
+function displayHiddenValue() 
+{	
+	document.getElementById("hiddenValue").innerHTML = "<p><strong>Hidden Value: </strong>" + document.getElementById("hiddenField").value + "</p>";
+}
+
+//EX 5 - For the Drop Down list create a function that will display the index, value and text of the selected option.
+function displayFavoriteClass()
+{
+	var favClass = document.getElementById("select");
+	
+	for (var x=0; x < favClass.length; x++)
+		{
+			if (favClass[x].selected == true)
+				{
+					document.getElementById("favoriteClass").innerHTML = "<p><strong>Favorite Class: </strong>" + favClass[x].value + " " + "<strong>Index: </strong>" + favClass[x].index + "</p>";
+				}
+		}
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h2>Form Processing - Homework</h2>
+<h3>Instructions:</h3>
+<p>Use the following form. For each of the following form elements:</p>
+<ol>
+  <li>Create a function that will display the current value of the element. Use the indicated event  to run the function.</li>
+  <li>Create a function that will set the element to a different value. Use an event of your choice to run this function. </li>
+  <li>For the hidden field create a function that will set it to a value of &quot;WDV221 Intro Javascript&quot;.</li>
+  <li>For the hidden field create a function that will will display its current value. </li>
+  <li>For the Drop Down list create a function that will display the index, value and text of the selected option.</li>
+</ol>
+<p>&nbsp;</p>
+<form name="form1" method="post" action="http://jhgullion.org/wdv341/displayDate.php">
+  <p>
+    <label>Product Number
+      <input type="text" name="textfield" id="textfield">
+    </label>
+   <em>Click Event</em></p>
+
+  <input type="button" value="Display Product Number" onclick="displayProductNumber();"> <span id="productNumber"></span> <!--EX 1 -->
+  
+  <input type="button" value="Change Product Number" onclick="changeProductNumber();"> <!--EX 2 -->
+  
+  <p>Please let us know how we performed:  </p>
+  <p>
+    <label>
+      <textarea name="textarea" id="textarea"></textarea>
+    </label>
+    <em>Click Event</em></p>
+	
+	<input type="button" value="Display Performance Evaluation" onclick="displayPerformanceEval();"> <span id="performanceEval"></span> <!--EX 1 -->
+	
+	<input type="button" value="Change Performance Evaluation" onclick="changePerformanceEval();"> <!--EX 2 -->
+	
+  <p>Choose Your Floor Preference:
+    <em>Change Event</em>
+  <table width="200">
+    <tr>
+      <td><label>
+        <input type="radio" name="RadioGroup1" value="top floor" id="RadioGroup1_0" onchange="displayFloorPreference();">
+        High Level</label></td> <!--EX 1 -->
+    </tr>
+	
+    <tr>
+      <td><label>
+        <input type="radio" name="RadioGroup1" value="average" id="RadioGroup1_1" onchange="displayFloorPreference();">
+        Mid Level</label></td> <!--EX 1 -->
+    </tr>
+    <tr>
+      <td><label>
+        <input type="radio" name="RadioGroup1" value="ground level" id="RadioGroup1_2" onchange="displayFloorPreference();">
+        Low Level</label></td> <!--EX 1 -->
+    </tr>
+  </table>
+  
+  <input type="button" value="Change Floor Preference" onclick="changeFloorPreference();"> <!--EX 2 -->
+  
+  <span id="floorPreference"></span>
+  
+  </p>
+  <p>Please Check All that Apply: <em>Change Event</em></p>
+  <p>
+    <label>
+      <input type="checkbox" name="checkbox" id="checkbox" onchange="displayCheckbox();"> <!--EX 1 -->
+      I like working with computers</label>
+	  
+	  <input type="button" value="Change Checkbox" onclick="changeCheckbox();"> <!--EX 2 -->
+	  
+	  <span id="checkboxValue"></span>
+  </p>
+  <p>
+    <label>Image File to Upload
+      <input type="file" name="fileField" id="fileField">
+    </label>
+  <em>Click Event</em></p>
+  
+  <input type="button" value="Display File Value" onclick="displayFile();"> <!--EX 1 -->
+  
+  <input type="button" value="Change File Value" onclick="changeFile();"> <!--EX 2 -->
+  
+  <span id="file"></span>
+  
+  <p>
+    There is a hidden field right here: 
+    <input type="hidden" name="hiddenField" id="hiddenField">
+  <em>Click Event 3. and 4.</em></p>
+  
+  <input type="button" value="Change Hidden Value" onclick="changeHiddenValue();"> <!--EX 3 -->
+  
+  <input type="button" value="Display Hidden Value" onclick="displayHiddenValue();"> <!--EX 4 -->
+  
+  <span id="hiddenValue"></span>
+  
+  
+  
+  <p>
+    <label>Please Select Your Favorite Class
+      <select name="select" id="select" onchange="displayFavoriteClass();">
+        <option value="WDV101">HTML</option>
+        <option value="WDV205">CSS</option>
+        <option value="WDV151">Web Design</option>
+        <option value="WDV221">Javascript</option>
+      </select>
+    </label>
+    <em>Change Event. 5.</em></p>
+  
+	<input type="button" value="Change Favorite Class" onclick="changeFavoriteClass();"> <!--EX 2 -->
+  
+	<span id="favoriteClass"></span>
+  
+  
+  <p>Submit
+    <input type="button" name="button" id="button" value="Submit">
+Click Event</p>
+ 
+	<input type="button" value="Submit Button value" onclick="displaySubmitValue()">
+	
+	<input type="button" value="Change Submit Value" onclick="changeSubmitValue();"> <!--EX 2 -->
+
+	<span id="submitValue"></span>
+	
+ <p>Reset
+    <input type="reset" name="button2" id="button2" value="Reset">
+  </p>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>

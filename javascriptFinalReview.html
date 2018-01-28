@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="currencyFormatter2.js"></script>
+
+<script>
+var product = ["Book","Pen","Paper","Pencil"];
+var price = [250, .75, 10, .15];
+var total = 0;
+var today = new Date();
+
+
+function addToTotal()
+{
+	for (var x=0; x < product.length; x++)
+	{
+		if (product[x] == document.getElementById("dropdown").value)
+		 {
+			total= total + parseFloat(price[x]);
+			testFormat(total);
+			document.getElementById("total").innerHTML = formattedCurrency;
+		 }
+	}
+	
+	if (total > 500)
+	{
+		document.getElementById("color").style.color = "red";
+	}
+}
+
+</script>
+
+</head>
+<body>
+<h2>Javascript Final Review</h2>
+<form>
+
+<select id="dropdown">
+<script>
+	for (var x=0; x < product.length; x++)
+	{
+		document.write("<option>"+ product[x] + "</option>");
+	}
+</script>
+</select>
+<input type="button" value="Add to Total" onclick="addToTotal()" />
+</form>
+
+<p>Total as of<span id="date">
+<script>
+	document.getElementById("date").innerHTML = today;
+</script>
+</span></p>
+
+<p id="color">Your total is: <span id="total"></span></p>
+</body>
+</html>

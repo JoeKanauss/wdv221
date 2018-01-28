@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Lab Exam #1</title>
+
+<style>
+#container {
+	width:960px;
+	background-color:#699;
+	margin:auto auto;
+}
+
+header h2 {
+	text-align:center;
+}
+
+section ol {
+	line-height: 30px;	
+}
+
+#mainContent ul{
+	list-style-type:none;	
+}
+</style>
+
+
+<script>
+
+
+
+function displayDiscount(inDiscountRate)
+{
+	document.getElementById("discountMessage").innerHTML = "You have chosen a " + inDiscountRate + "% discount.";	
+}
+
+function countCharacters()
+{
+var toCount = document.getElementById("textfield").value;
+document.getElementById("characterCount").innerHTML = toCount.length;
+}
+
+function addValues()
+{
+var inNum1 = document.getElementById("num1").value;
+var inNum2 = document.getElementById("num2").value;
+var resultAdd = parseFloat(inNum1) + parseFloat(inNum2);
+
+document.getElementById("resultAdd").value = resultAdd;
+
+if (resultAdd > 100 )
+	{document.getElementById("resultMessage").innerHTML = "That is too much for you!"}
+else
+	{document.getElementById("resultMessage").innerHTML = "Good choice!"}
+}
+
+function clearResult1()
+{
+	document.getElementById("characterCount").innerHTML = "";
+}
+
+function clearResult2()
+{
+	document.getElementById("resultMessage").innerHTML = "";
+}
+
+
+</script>
+
+
+
+</head>
+
+<body>
+<div id="container">
+
+	<!-- Start header area  -->
+	<header>
+    	<h2>WDV221 Intro Javascript</h2>
+		<h2>Lab Exam #1</h2>
+		<h2 id="name"> </h2>
+	</header>
+    
+    <!-- Start main content area  -->
+    <section id="mainContent">
+    
+    <h3>Discount Selector:</h3>
+    <p>Please select your discount rate: <span id="discountMessage"></span></p>
+    <ul >
+   	  <li><input type="radio" name="discountRate" value=".10" onclick="displayDiscount(10);"> 10%</li>
+    	<li><input type="radio" name="discountRate" value=".15" onclick="displayDiscount(15);"> 15%</li>
+    	<li><input type="radio" name="discountRate" value=".20" onclick="displayDiscount(20);"> 20%</li>                
+    </ul>
+    
+    <form name="form1" method="post" action="">
+      <h3>Character Counter:</h3>
+      <p>
+        <label>Enter a word or a sentence: 
+          <input type="text" name="textfield" id="textfield">
+        </label>
+      </p>
+      <p>Your information has <span id="characterCount"></span> characters. </p>
+      <p>
+        <input type="button" name="button" id="button" value="Count Characters" onclick="countCharacters();" >
+        <input type="reset" name="button2" id="button2" value="Reset" onclick="clearResult1()">
+      </p>
+    </form>
+    <form name="form2" method="post" action="">
+      <h3>Add Numbers:
+      </h3>
+      <p>
+        <label>Number 1
+          <input type="text" name="num1" id="num1">
+        </label>
+      </p>
+      <p>
+        <label>Number 2
+          <input type="text" name="num2" id="num2">
+        </label>
+      </p>
+      <p>
+        <label>Result:
+          <input type="text" name="resultAdd" id="resultAdd">
+        </label><span id="resultMessage"></span>
+      </p>
+      <p>
+        <input type="button" name="button3" id="button3" value="Add Numbers" onclick="addValues();">
+        <input type="reset" name="button4" id="button4" value="Reset" onclick="clearResult2();">
+      </p>
+    </form>
+  </section>
+   
+    
+    <!-- Start instructions area -->
+  <section id="instructionsArea">
+    
+   	<h3>Exam Instructions:</h3>
+        
+      <ol>
+       	  <li>Create a global scope variable called yourName. Assign your name to the variable. </li>
+       	  <li>Write a function that will display the variable yourName as an h2 element in the bottom of the header. Call this function as a runtime function.</li>
+       	  <li><strong>Discount Selector:</strong>
+<ol type="a">
+   	      <li>When a discount has been selected call the displayDiscount function that is already on the page. It should not need to be modified.</li>
+       	      <li>Pass the appropriate information as a parameter for the display message.</li>
+   	        </ol>
+   	      </li>
+       	  <li><strong>Character Counter</strong>
+<ol type="a">
+          <li>When the "Count Characters" button is clicked call a function.</li>
+              <li>The function will pull the information from the text field and count the number of characters in the field.</li>
+              <li>Display the result inside the characterCount span.</li>
+            </ol>
+          </li>
+          <li><strong>Add Numbers</strong>
+<ol type="a">
+          <li>When the Add Numbers button is clicked call the addValues( ) function.</li>
+              <li>The function will pull the values from Number 1 and Number 2.</li>
+              <li>The function will add them together. </li>
+              <li>Display the result in the Result text field.</li>
+              <li>If the result is greater than 100 display the following message &quot;That is to much for you!&quot; else display &quot;Good choice!&quot; at the end of the Result line.</li>
+            </ol>
+          </li>
+      </ol>
+      <h3>Extra Credit:</h3>
+      <ul>
+        <li>On one or both forms make the Reset button clear the Result and Message element(s) as well as the form control fields.</li>
+      </ul>
+  </section>
+    
+    <!-- Start footer area  -->
+    <footer>
+    
+    </footer>
+    
+</div>
+<script>
+var yourName = "Joe Kanauss";
+
+function displayName()
+{
+	document.getElementById("name").innerHTML = yourName;
+}
+displayName();
+</script>
+</body>
+</html>
